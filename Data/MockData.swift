@@ -1,5 +1,13 @@
 import Foundation
 
+struct EvolutionTimelinePeriod: Identifiable, Hashable {
+    let id = UUID()
+    let title: String
+    let rangeLabel: String
+    let highlight: String
+    let species: [Species]
+}
+
 struct MockData {
 
     // MARK: - User
@@ -133,6 +141,47 @@ struct MockData {
     static let favorites = [axolotl, snowLeopard]
     static let recommended = [polarBear, emperorPenguin]
 
+    static let searchStarterKeywords = ["极地", "海洋", "活化石", "濒危", "两栖"]
+    static let searchPreviewSpecies = [polarBear, ginkgo, blueWhale]
+
+    static let evolutionTimelinePeriods: [EvolutionTimelinePeriod] = [
+        EvolutionTimelinePeriod(
+            title: "寒武纪生命爆发",
+            rangeLabel: "约 5.41 亿年前",
+            highlight: "多细胞复杂生命快速出现",
+            species: [mantisShrimp]
+        ),
+        EvolutionTimelinePeriod(
+            title: "中生代与古老谱系延续",
+            rangeLabel: "约 2.52 亿 - 6600 万年前",
+            highlight: "古老植物和海洋支系延续至今",
+            species: [ginkgo]
+        ),
+        EvolutionTimelinePeriod(
+            title: "新生代哺乳动物扩张",
+            rangeLabel: "约 6600 万年前至今",
+            highlight: "大型哺乳动物在多样生态位中演化",
+            species: [polarBear, snowLeopard, blueWhale]
+        ),
+        EvolutionTimelinePeriod(
+            title: "第四纪极端环境适应",
+            rangeLabel: "约 258 万年前至今",
+            highlight: "寒区与高海拔适应形态进一步强化",
+            species: [emperorPenguin, axolotl]
+        )
+    ]
+
+    static func searchSpecies(query: String) -> [Species] {
+        let normalized = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !normalized.isEmpty else { return [] }
+
+        return allSpecies.filter { species in
+            species.name.localizedCaseInsensitiveContains(normalized)
+            || species.scientificName.localizedCaseInsensitiveContains(normalized)
+            || species.tags.contains(where: { $0.localizedCaseInsensitiveContains(normalized) })
+        }
+    }
+
     // MARK: - Taxonomy Explorer Mock
     static let taxonomyTree = TaxonomyNode(
         level: .domain,
@@ -149,7 +198,6 @@ struct MockData {
                 description: "脊椎 & 无脊椎",
                 iconName: "hare.fill",
                 imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuCN0LL2t_xKeiBxEVxRCy217FV7X19BaDjzKFBE4SeIZJzz2zyMaWf1x27GkVfU1vMllx_OiAFF96UVqMW2lX_SeibtLG-z65zj9I5dzDsHdE7mWRY_ebp73C8xgEbLV1B5flFCFpK8W_-7Q3DHNXrJowaqCKhbbQBQGsOAvznpAGu5-d26oTddaJK18VgdQR7lACZVIObsZCElSZq497GI1dLPHYQ4wUbx0yYy4RZM4gLtJNk2vQePjUvXMJXpx_uDLko285Ao7pc",
-                speciesCount: "1.5M+",
                 children: [
                     TaxonomyNode(
                         level: .phylum,
@@ -170,7 +218,8 @@ struct MockData {
                             )
                         ]
                     )
-                ]
+                ],
+                speciesCount: "1.5M+"
             ),
             TaxonomyNode(
                 level: .kingdom,

@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A00100010000000000000000 /* BioScopeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100010000000000000000 /* BioScopeApp.swift */; };
+		A00100020000000000000000 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100020000000000000000 /* ContentView.swift */; };
+		A00100030000000000000000 /* LiquidGlassNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100030000000000000000 /* LiquidGlassNavigationBar.swift */; };
+		A00100040000000000000000 /* LiquidGlassTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100040000000000000000 /* LiquidGlassTabBar.swift */; };
+		A00100050000000000000000 /* SpeciesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100050000000000000000 /* SpeciesCardView.swift */; };
+		A00100060000000000000000 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100060000000000000000 /* MockData.swift */; };
+		A00100070000000000000000 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100070000000000000000 /* Species.swift */; };
+		A00100080000000000000000 /* Taxonomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100080000000000000000 /* Taxonomy.swift */; };
+		A00100090000000000000000 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100090000000000000000 /* User.swift */; };
+		A00100100000000000000000 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100100000000000000000 /* FavoritesView.swift */; };
+		A00100110000000000000000 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100110000000000000000 /* HomeView.swift */; };
+		A00100120000000000000000 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100120000000000000000 /* ProfileView.swift */; };
+		A00100130000000000000000 /* SpeciesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100130000000000000000 /* SpeciesDetailView.swift */; };
+		A00100140000000000000000 /* TaxonomyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100140000000000000000 /* TaxonomyDetailView.swift */; };
+		A00100150000000000000000 /* TaxonomyExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10100150000000000000000 /* TaxonomyExplorerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A10100010000000000000000 /* BioScopeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioScopeApp.swift; sourceTree = "<group>"; };
+		A10100020000000000000000 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A10100030000000000000000 /* LiquidGlassNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGlassNavigationBar.swift; sourceTree = "<group>"; };
+		A10100040000000000000000 /* LiquidGlassTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGlassTabBar.swift; sourceTree = "<group>"; };
+		A10100050000000000000000 /* SpeciesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesCardView.swift; sourceTree = "<group>"; };
+		A10100060000000000000000 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		A10100070000000000000000 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		A10100080000000000000000 /* Taxonomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taxonomy.swift; sourceTree = "<group>"; };
+		A10100090000000000000000 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A10100100000000000000000 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		A10100110000000000000000 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A10100120000000000000000 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A10100130000000000000000 /* SpeciesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailView.swift; sourceTree = "<group>"; };
+		A10100140000000000000000 /* TaxonomyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxonomyDetailView.swift; sourceTree = "<group>"; };
+		A10100150000000000000000 /* TaxonomyExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxonomyExplorerView.swift; sourceTree = "<group>"; };
+		A10100990000000000000000 /* BioScope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BioScope.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A30100010000000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A20100010000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				A20100020000000000000000 /* App */,
+				A20100030000000000000000 /* Components */,
+				A20100040000000000000000 /* Views */,
+				A20100050000000000000000 /* Models */,
+				A20100060000000000000000 /* Data */,
+				A20100070000000000000000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A20100020000000000000000 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A10100010000000000000000 /* BioScopeApp.swift */,
+				A10100020000000000000000 /* ContentView.swift */,
+			);
+			sourceTree = "<group>";
+		};
+		A20100030000000000000000 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A10100030000000000000000 /* LiquidGlassNavigationBar.swift */,
+				A10100040000000000000000 /* LiquidGlassTabBar.swift */,
+				A10100050000000000000000 /* SpeciesCardView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A20100040000000000000000 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A10100110000000000000000 /* HomeView.swift */,
+				A10100150000000000000000 /* TaxonomyExplorerView.swift */,
+				A10100100000000000000000 /* FavoritesView.swift */,
+				A10100120000000000000000 /* ProfileView.swift */,
+				A10100130000000000000000 /* SpeciesDetailView.swift */,
+				A10100140000000000000000 /* TaxonomyDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A20100050000000000000000 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A10100070000000000000000 /* Species.swift */,
+				A10100080000000000000000 /* Taxonomy.swift */,
+				A10100090000000000000000 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A20100060000000000000000 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A10100060000000000000000 /* MockData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A20100070000000000000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A10100990000000000000000 /* BioScope.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A40100010000000000000000 /* BioScope */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A50100020000000000000000 /* Build configuration list for PBXNativeTarget "BioScope" */;
+			buildPhases = (
+				A30100020000000000000000 /* Sources */,
+				A30100010000000000000000 /* Frameworks */,
+				A30100030000000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BioScope;
+			productName = BioScope;
+			productReference = A10100990000000000000000 /* BioScope.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A40100020000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2604;
+				LastUpgradeCheck = 2604;
+				TargetAttributes = {
+					A40100010000000000000000 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+				};
+			};
+			buildConfigurationList = A50100010000000000000000 /* Build configuration list for PBXProject "BioScope" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = A20100010000000000000000;
+			productRefGroup = A20100070000000000000000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A40100010000000000000000 /* BioScope */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A30100030000000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A30100020000000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00100010000000000000000 /* BioScopeApp.swift in Sources */,
+				A00100020000000000000000 /* ContentView.swift in Sources */,
+				A00100030000000000000000 /* LiquidGlassNavigationBar.swift in Sources */,
+				A00100040000000000000000 /* LiquidGlassTabBar.swift in Sources */,
+				A00100050000000000000000 /* SpeciesCardView.swift in Sources */,
+				A00100060000000000000000 /* MockData.swift in Sources */,
+				A00100070000000000000000 /* Species.swift in Sources */,
+				A00100080000000000000000 /* Taxonomy.swift in Sources */,
+				A00100090000000000000000 /* User.swift in Sources */,
+				A00100100000000000000000 /* FavoritesView.swift in Sources */,
+				A00100110000000000000000 /* HomeView.swift in Sources */,
+				A00100120000000000000000 /* ProfileView.swift in Sources */,
+				A00100130000000000000000 /* SpeciesDetailView.swift in Sources */,
+				A00100140000000000000000 /* TaxonomyDetailView.swift in Sources */,
+				A00100150000000000000000 /* TaxonomyExplorerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A60100010000000000000000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A60100020000000000000000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A60200010000000000000000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BioScope;
+				INFOPLIST_KEY_LSRequiresIPhoneOS = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liushiyou.BioScope;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A60200020000000000000000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = BioScope;
+				INFOPLIST_KEY_LSRequiresIPhoneOS = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liushiyou.BioScope;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A50100010000000000000000 /* Build configuration list for PBXProject "BioScope" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A60100010000000000000000 /* Debug */,
+				A60100020000000000000000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A50100020000000000000000 /* Build configuration list for PBXNativeTarget "BioScope" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A60200010000000000000000 /* Debug */,
+				A60200020000000000000000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A40100020000000000000000 /* Project object */;
+}

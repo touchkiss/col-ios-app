@@ -2,147 +2,21 @@ import SwiftUI
 
 struct SpeciesDetailView: View {
     let species: Species
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
-        ScrollView {
-            VStack(spacing: 0) {
-                // Hero Image
-                ZStack(alignment: .bottomLeading) {
-                    AsyncImage(url: URL(string: species.imageUrl)) { image in
-                        image.resizable()
-                             .aspectRatio(contentMode: .fill)
-                    } placeholder: {
-                        Color.gray.opacity(0.3)
-                    }
-                    .frame(height: 500)
-                    .clipped()
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 20) {
+                heroSection
 
-                    LinearGradient(
-                        gradient: Gradient(colors: [.black.opacity(0.8), .black.opacity(0.2), .clear]),
-                        startPoint: .bottom,
-                        endPoint: .top
-                    )
+                profileSection
+                taxonomySection
+                habitatSection
+                conservationSection
 
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack(spacing: 8) {
-                            Text("Endangered Status".uppercased())
-                                .font(.system(size: 10, weight: .bold, design: .monospaced))
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(Color(hex: "0b5345"))
-                                .foregroundColor(Color(hex: "86c5b3"))
-                                .cornerRadius(4)
-
-                            Text("\(species.status.acronym) · \(species.status.rawValue)".uppercased())
-                                .font(.system(size: 10, weight: .bold, design: .monospaced))
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(Color(hex: "93000a").opacity(0.4))
-                                .foregroundColor(Color(hex: "ffb4ab"))
-                                .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color(hex: "ffb4ab").opacity(0.2), lineWidth: 1))
-                                .cornerRadius(4)
-                        }
-
-                        Text(species.name)
-                            .font(.system(size: 56, weight: .black))
-                            .foregroundColor(.white)
-                            .tracking(-1)
-
-                        Text(species.scientificName)
-                            .font(.system(size: 24, weight: .light))
-                            .foregroundColor(Color.customCyan)
-                            .italic()
-                            .tracking(-0.5)
-                    }
-                    .padding(24)
-                }
-
-                // Content Canvas
-                VStack(spacing: 32) {
-                    // Stats Bento
-                    HStack(spacing: 12) {
-                        StatBox(icon: "thermometer", title: "Average Temp", value: species.averageTemp ?? "--")
-                        StatBox(icon: "scalemass.fill", title: "Mass (Adult)", value: species.mass ?? "--")
-                        StatBox(icon: "ruler.fill", title: "Length", value: species.length ?? "--")
-                        StatBox(icon: "clock.fill", title: "Lifespan", value: species.lifespan ?? "--")
-                    }
-
-                    // Narrative
-                    VStack(alignment: .leading, spacing: 16) {
-                        HStack {
-                            Text("简介")
-                                .font(.system(size: 28, weight: .bold))
-                                .foregroundColor(.white)
-                            Rectangle().fill(Color.gray.opacity(0.2)).frame(height: 1)
-                        }
-
-                        Text(species.description)
-                            .font(.system(size: 16, weight: .regular))
-                            .foregroundColor(Color(hex: "bbc9cc"))
-                            .lineSpacing(6)
-                    }
-
-                    // Taxonomy Connectors
-                    VStack(alignment: .leading, spacing: 16) {
-                        HStack {
-                            Text("科学分类")
-                                .font(.system(size: 28, weight: .bold))
-                                .foregroundColor(.white)
-                            Rectangle().fill(Color.gray.opacity(0.2)).frame(height: 1)
-                        }
-
-                        VStack(alignment: .leading, spacing: 24) {
-                            TaxonomyLine(level: "Kingdom", value: species.kingdom)
-                            TaxonomyLine(level: "Phylum", value: species.phylum)
-                            TaxonomyLine(level: "Class", value: species.className)
-                            TaxonomyLine(level: "Order", value: species.order)
-                            TaxonomyLine(level: "Family", value: species.family)
-                        }
-                        .padding(.leading, 32)
-                        .overlay(
-                            Rectangle()
-                                .fill(Color.customCyan.opacity(0.2))
-                                .frame(width: 1)
-                                .padding(.leading, 12),
-                            alignment: .leading
-                        )
-                    }
-
-                    // Distribution
-                    if let mapImage = species.mapImageUrl {
-                        VStack(alignment: .leading, spacing: 16) {
-                            HStack {
-                                Text("地理分布")
-                                    .font(.system(size: 20, weight: .bold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                                Image(systemName: "globe.americas.fill")
-                                    .foregroundColor(Color.customCyan)
-                            }
-
-                            AsyncImage(url: URL(string: mapImage)) { image in
-                                image.resizable().aspectRatio(contentMode: .fill)
-                            } placeholder: {
-                                Color.gray.opacity(0.3)
-                            }
-                            .frame(height: 180)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                            .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray.opacity(0.2), lineWidth: 1))
-                            .grayscale(0.5)
-
-                            Text(species.distribution ?? "")
-                                .font(.system(size: 14, weight: .regular))
-                                .foregroundColor(Color(hex: "bbc9cc"))
-                        }
-                        .padding(24)
-                        .background(Color(hex: "1e2023"))
-                        .cornerRadius(24)
-                    }
-                }
-                .padding(24)
-                .offset(y: -40)
+                Spacer().frame(height: 48)
             }
+            .padding(.bottom, 120)
         }
         .background(Color.customBackground.ignoresSafeArea())
         .edgesIgnoringSafeArea(.top)
@@ -153,57 +27,195 @@ struct SpeciesDetailView: View {
             alignment: .top
         )
     }
-}
 
-// Helpers
-struct StatBox: View {
-    let icon: String
-    let title: String
-    let value: String
+    private var heroSection: some View {
+        ZStack(alignment: .bottomLeading) {
+            AsyncImage(url: URL(string: species.imageUrl)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            } placeholder: {
+                Color.gray.opacity(0.35)
+            }
+            .frame(height: 380)
+            .clipped()
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Image(systemName: icon)
-                .foregroundColor(Color.customCyan)
+            LinearGradient(
+                gradient: Gradient(colors: [.black.opacity(0.82), .black.opacity(0.2), .clear]),
+                startPoint: .bottom,
+                endPoint: .top
+            )
 
-            VStack(alignment: .leading, spacing: 4) {
-                Text(title.uppercased())
-                    .font(.system(size: 10, weight: .regular, design: .monospaced))
-                    .foregroundColor(Color(hex: "bbc9cc"))
-
-                Text(value)
-                    .font(.system(size: 16, weight: .bold))
+            VStack(alignment: .leading, spacing: 8) {
+                Text(species.name)
+                    .font(.system(size: 42, weight: .black, design: .rounded))
                     .foregroundColor(.white)
+
+                Text(species.scientificName)
+                    .font(.system(size: 18, weight: .medium))
+                    .foregroundColor(Color.customCyan)
+                    .italic()
+
+                Text("\(species.status.acronym) · \(species.status.rawValue)")
+                    .font(.system(size: 11, weight: .bold, design: .monospaced))
+                    .foregroundColor(Color(hex: "ffb4ab"))
+                    .padding(.horizontal, 9)
+                    .padding(.vertical, 4)
+                    .background(Color(hex: "93000a").opacity(0.36))
+                    .clipShape(Capsule())
+            }
+            .padding(.horizontal, 22)
+            .padding(.bottom, 22)
+        }
+    }
+
+    private var profileSection: some View {
+        InfoSection(title: "Profile", subtitle: "基础信息") {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(species.description)
+                    .font(.system(size: 15, weight: .regular))
+                    .foregroundColor(Color.white.opacity(0.82))
+                    .lineSpacing(5)
+
+                HStack(spacing: 8) {
+                    metricChip(title: "Temp", value: species.averageTemp ?? "--")
+                    metricChip(title: "Mass", value: species.mass ?? "--")
+                    metricChip(title: "Length", value: species.length ?? "--")
+                    metricChip(title: "Life", value: species.lifespan ?? "--")
+                }
             }
         }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(hex: "1a1c1f"))
-        .cornerRadius(12)
-        .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.gray.opacity(0.1), lineWidth: 1))
+    }
+
+    private var taxonomySection: some View {
+        InfoSection(title: "Taxonomy", subtitle: "科学分类") {
+            VStack(spacing: 8) {
+                taxonomyRow(label: "Domain", value: species.domain)
+                taxonomyRow(label: "Kingdom", value: species.kingdom)
+                taxonomyRow(label: "Phylum", value: species.phylum)
+                taxonomyRow(label: "Class", value: species.className)
+                taxonomyRow(label: "Order", value: species.order)
+                taxonomyRow(label: "Family", value: species.family)
+                taxonomyRow(label: "Genus", value: species.genus)
+            }
+        }
+    }
+
+    private var habitatSection: some View {
+        InfoSection(title: "Habitat", subtitle: "分布与生境") {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(spacing: 8) {
+                    if let icon = species.habitatIcon {
+                        Image(systemName: icon)
+                            .foregroundColor(Color.customCyan)
+                    }
+
+                    Text(species.habitatName ?? "未知生境")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundColor(.white)
+
+                    if let depth = species.depth {
+                        Text(depth)
+                            .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                            .foregroundColor(Color.white.opacity(0.65))
+                    }
+                }
+
+                Text(species.distribution ?? "暂无分布描述")
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundColor(Color.white.opacity(0.78))
+                    .lineSpacing(4)
+
+                if let map = species.mapImageUrl {
+                    AsyncImage(url: URL(string: map)) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    } placeholder: {
+                        Color.gray.opacity(0.3)
+                    }
+                    .frame(height: 170)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+            }
+        }
+    }
+
+    private var conservationSection: some View {
+        InfoSection(title: "Conservation", subtitle: "保护状态") {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("当前状态：\(species.status.rawValue)（\(species.status.acronym)）")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundColor(.white)
+
+                Text("重点关注：\(species.tags.joined(separator: "、"))")
+                    .font(.system(size: 13, weight: .regular))
+                    .foregroundColor(Color.white.opacity(0.75))
+
+                Text("建议持续监测栖息地变化、食物链压力与气候波动，以保障种群稳定。")
+                    .font(.system(size: 13, weight: .regular))
+                    .foregroundColor(Color.white.opacity(0.65))
+                    .lineSpacing(4)
+            }
+        }
+    }
+
+    private func taxonomyRow(label: String, value: String) -> some View {
+        HStack {
+            Text(label.uppercased())
+                .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                .foregroundColor(Color.customCyan)
+            Spacer()
+            Text(value)
+                .font(.system(size: 13, weight: .medium))
+                .foregroundColor(.white)
+                .multilineTextAlignment(.trailing)
+        }
+        .padding(.vertical, 5)
+    }
+
+    private func metricChip(title: String, value: String) -> some View {
+        VStack(spacing: 4) {
+            Text(title)
+                .font(.system(size: 10, weight: .bold, design: .monospaced))
+                .foregroundColor(Color.customCyan)
+            Text(value)
+                .font(.system(size: 12, weight: .semibold))
+                .foregroundColor(.white)
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 8)
+        .background(Color(hex: "25282d"))
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 
-struct TaxonomyLine: View {
-    let level: String
-    let value: String
+private struct InfoSection<Content: View>: View {
+    let title: String
+    let subtitle: String
+    @ViewBuilder let content: Content
 
     var body: some View {
-        HStack {
-            Rectangle()
-                .fill(Color.customCyan.opacity(0.4))
-                .frame(width: 16, height: 1)
-                .offset(x: -20)
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text(level.uppercased())
-                    .font(.system(size: 10, weight: .bold, design: .monospaced))
-                    .foregroundColor(Color.customCyan)
-
-                Text(value)
-                    .font(.system(size: 18, weight: .medium))
-                    .foregroundColor(.white)
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title)
+                        .font(.system(size: 22, weight: .bold))
+                        .foregroundColor(.white)
+                    Text(subtitle.uppercased())
+                        .font(.system(size: 10, weight: .bold, design: .monospaced))
+                        .foregroundColor(Color.customCyan)
+                }
+                Spacer()
             }
+
+            content
         }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.customSurface)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.white.opacity(0.08), lineWidth: 1))
+        .padding(.horizontal, 20)
     }
 }
